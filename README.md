@@ -114,3 +114,4 @@ exit
 ```
 
 ![Postman Screenshot](https://github.com/keybean013/app-springboot/blob/main/image.png?raw=true)
+![Postman Screenshot](./image.png)
