@@ -107,6 +107,7 @@ exit
 
 # You can launch the post man in your app menu
 
+<<<<<<< HEAD
 # Creating collection 
   -- Select the collections menu in top-right of the window
   -- Click the plus sign next to the collections menu
@@ -133,7 +134,13 @@ exit
       Ex. {{baseurl}}/posts/1/comments
       between curly braces is the name that you put in your varialbe
       and the "/posts/1/comments" is the address that you want to get 
+=======
+# Creating collection
+  Select the collections menu in top-right of the window
+  Click the plus sign next to the collections menu
+>>>>>>> acfaa759a58f3c975c3198da0c87ab55a2640427
 
 ```
 
-
+![Postman Screenshot](https://github.com/keybean013/app-springboot/blob/main/image.png?raw=true)
+![Postman Screenshot](./image.png)
