@@ -2,7 +2,19 @@
 
 ### 1. JAVA and Maven Installation
 
-- text here
+- Download the latest LTS version of JDK
+- Open your terminal and update your system
+
+```bash
+# Update the system
+sudo apt update
+
+# Install JDK
+sudo apt install default-jdk
+
+# Install specific JDK
+sudo apt install openjdk-17-jdk
+```
 
 ### 2. Database Installation
 
