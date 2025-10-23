@@ -90,8 +90,23 @@ exit
 # look for the package name
   ls
 
-# installation ()
+# installation
   sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
+```
+
+### 5. Postman installation and creation of collection and environment and how to use baseURL
+
+```bash
+# Installation in terminal (Ubuntu desktop)
+  sudo snap install postman
+
+# You can launch the post man in your app menu
+
+# Creating collection 
+  #-- Select the collections menu in top-right of the window
+  #-- Click the plus sign next to the collections menu
+
+  ![alt text](image.png)
 ```
 
 
