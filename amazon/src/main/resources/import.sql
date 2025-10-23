@@ -1,0 +1,10 @@
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource1', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource2', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource3', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource4', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource5', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource6', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource7', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource8', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (true, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource9', NULL);
+INSERT INTO user (is_active, password, username, session_key) VALUES (false, '$2a$10$hd7eH5mhzk4M2IR5fyOEe.LWvAi7SskPfRylAJJ6AL/PhrrKfcuTm', 'solutionsresource10', NULL);
