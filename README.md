@@ -145,4 +145,5 @@ sudo snap install postman
 
 - Select the collections menu in top-right of the window
 - Click the plus sign next to the collections menu
-  ![Postman Screenshot](./image.png)
+
+![Postman Screenshot](./image.png)
