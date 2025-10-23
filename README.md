@@ -107,11 +107,9 @@ exit
 
 # You can launch the post man in your app menu
 
-# Creating collection 
+# Creating collection
   Select the collections menu in top-right of the window
   Click the plus sign next to the collections menu
 
-  ![alt text](image.png)
+  ![Postman Screenshot](./image.png)
 ```
-
-
