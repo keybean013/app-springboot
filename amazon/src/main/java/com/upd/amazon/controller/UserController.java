@@ -12,7 +12,7 @@ import com.upd.amazon.entity.User;
 import com.upd.amazon.service.UserService;
 
 @RestController
-public class TestController {
+public class UserController {
 
     @Autowired
     private UserService userService;
