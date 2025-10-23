@@ -98,7 +98,6 @@ exit
 # installation
   sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
 ```
-<<<<<<< HEAD
 
 ### 5. Postman installation and creation of collection and environment and how to use baseURL
 
@@ -116,5 +115,3 @@ exit
 ```
 
 
-=======
->>>>>>> cfda746de34e6db7463c4e6dc930796fe3481453
