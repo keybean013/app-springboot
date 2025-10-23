@@ -3,7 +3,6 @@
 ### 1. JAVA and Maven Installation
 
 - Download the latest LTS version of JDK
-- Open your terminal and update your system
 
 ```bash
 # Update the system
