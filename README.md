@@ -1,5 +1,9 @@
 # Installation Guide for SPRINGBOOT
 
+| 111          | 222        | 333        | 444        | JAVA                           |
+| ------------ | ---------- | ---------- | ---------- | ------------------------------ |
+| **v20.19.4** | **10.8.2** | **0.40.1** | **20.0.0** | **openjdk 17.0.16 2025-07-15** |
+
 ### 1. JAVA and Maven Installation
 
 - Java installation
@@ -19,6 +23,7 @@
 ```
 
 - Maven installation
+
 ```bash
 # Update the system
   sudo apt update
@@ -93,6 +98,7 @@ exit
 # installation
   sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
 ```
+<<<<<<< HEAD
 
 ### 5. Postman installation and creation of collection and environment and how to use baseURL
 
@@ -110,3 +116,5 @@ exit
 ```
 
 
+=======
+>>>>>>> cfda746de34e6db7463c4e6dc930796fe3481453
