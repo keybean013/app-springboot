@@ -13,6 +13,9 @@
 
 # Install specific JDK
   sudo apt install openjdk-17-jdk
+
+# Checking if the java is installed
+  java -version
 ```
 
 - Maven installation
