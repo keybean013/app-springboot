@@ -101,7 +101,7 @@ exit
 
 ### 5. Postman installation and creation of collection and environment and how to use baseURL
 
-```bash
+
 # Installation in terminal (Ubuntu desktop)
   sudo snap install postman
 
@@ -136,8 +136,6 @@ exit
 # Creating collection
   Select the collections menu in top-right of the window
   Click the plus sign next to the collections menu
-
-```
 
 ![Postman Screenshot](https://github.com/keybean013/app-springboot/blob/main/image.png?raw=true)
 ![Postman Screenshot](./image.png)
