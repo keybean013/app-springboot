@@ -10,29 +10,29 @@
 
 ```bash
 # Update the system
-  sudo apt update
+sudo apt update
 
 # Install JDK
-  sudo apt install default-jdk
+sudo apt install default-jdk
 
 # Install specific JDK
-  sudo apt install openjdk-17-jdk
+sudo apt install openjdk-17-jdk
 
 # Checking if the java is installed
-  java -version
+java -version
 ```
 
 - Maven installation
 
 ```bash
 # Update the system
-  sudo apt update
+sudo apt update
 
 # Maven installation
-  sudo apt install maven -y
+sudo apt install maven -y
 
 # Check if the maven is installed
-  mvn -version
+mvn -version
 ```
 
 ### 2. Database Installation
@@ -90,54 +90,59 @@ exit
 
 ```bash
 # Go to the folder location of the downloaded package EX. downloads
-  cd Downloads
+cd Downloads
 
 # look for the package name
-  ls
+ls
 
 # installation
-  sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
+sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
 ```
 
 ### 5. Postman installation and creation of collection and environment and how to use baseURL
 
 ```bash
-# Installation in terminal (Ubuntu desktop)
-  sudo snap install postman
-
-# You can launch the post man in your app menu
-
-# Creating collection 
-  -- Select the collections menu in top-right of the window
-  -- Click the plus sign next to the collections menu
-  -- Choose the blank collection
-
-# Add request
-  -- hover the collection name so that the options will appear on the right of collection name
-  -- click the plus icon
-
-# Creating environment
-  -- Choose the Environment menu below the collections menu
-  -- Click the plus icon next to Collections menu
-  -- Name your environment by changing the default name (New Environment) located top-right of the main window
-
-# Creating baseUrl
-  -- Click your environment that you want to create baseURL
-  -- add the name of your variable under Varialbe column and add your URL under the value column
-
-# Using the environment variable (baseURL)
-  -- Go to your collections and choose your collection
-  -- Add a request
-  -- Choose the Environment that you want to use (top-right corner of main window )
-  -- call the variable that you want to use inside
-      Ex. {{baseurl}}/posts/1/comments
-      between curly braces is the name that you put in your varialbe
-      and the "/posts/1/comments" is the address that you want to get 
-# Creating collection
-  Select the collections menu in top-right of the window
-  Click the plus sign next to the collections menu
-
+# 1. Installation in terminal (Ubuntu desktop)
+# 2. You can launch the postman in your app menu after the installation
+sudo snap install postman
 ```
 
-![Postman Screenshot](https://github.com/keybean013/app-springboot/blob/main/image.png?raw=true)
-![Postman Screenshot](./image.png)
+#### 5.1 Creating collection
+
+- Select the collections menu in top-right of the window
+- Click the plus sign next to the collections menu
+- Choose the blank collection
+
+#### 5.2 Add request
+
+- hover the collection name so that the options will appear on the right of collection name
+- click the plus icon
+
+#### 5.3 Creating environment
+
+- Choose the Environment menu below the collections menu
+- Click the plus icon next to Collections menu
+- Name your environment by changing the default name (New Environment) located top-right of the main window
+
+#### 5.4 Creating baseUrl
+
+- Click your environment that you want to create baseURL
+- Add the name of your variable under Varialbe column and add your URL under the value column
+
+#### 5.5 Using the environment variable (baseURL)
+
+- Go to your collections and choose your collection
+- Add a request
+- Choose the Environment that you want to use (top-right corner of main window )
+- call the variable that you want to use inside
+  > [!NOTE]  
+  > Example: `{{baseurl}}/posts/1/comments`
+  >
+  > - `{{baseurl}}` is your variable name.
+  > - `/posts/1/comments` is the endpoint you want to access.
+
+#### 5.6 Creating collection
+
+- Select the collections menu in top-right of the window
+- Click the plus sign next to the collections menu
+  ![Postman Screenshot](./image.png)
