@@ -113,33 +113,52 @@ sudo snap install postman
 - Click the plus sign next to the collections menu
 - Choose the blank collection
 
+![alt text](image-1.png)
+
 #### 5.2 Add request
 
 - hover the collection name so that the options will appear on the right of collection name
 - click the plus icon
 
+![alt text](image-2.png)
+
 #### 5.3 Creating environment
 
 - Choose the Environment menu below the collections menu
 - Click the plus icon next to Collections menu
+
+![alt text](image-3.png)
+
 - Name your environment by changing the default name (New Environment) located top-right of the main window
+
+![alt text](image-4.png)
 
 #### 5.4 Creating baseUrl
 
 - Click your environment that you want to create baseURL
 - Add the name of your variable under Varialbe column and add your URL under the value column
 
+![alt text](image-5.png)
+
 #### 5.5 Using the environment variable (baseURL)
 
 - Go to your collections and choose your collection
 - Add a request
+
+![alt text](image-6.png)
+
 - Choose the Environment that you want to use (top-right corner of main window )
+
+![alt text](image-7.png)
+
 - Call the variable that you want to use inside
   > [!NOTE]  
   > Example: `{{baseurl}}/posts/1/comments`
   >
   > - `{{baseurl}}` is your variable name.
   > - `/posts/1/comments` is the endpoint you want to access.
+
+![alt text](image-8.png)
 
 #### 5.6 Creating collection
 
