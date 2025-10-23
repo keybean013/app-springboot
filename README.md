@@ -1,6 +1,10 @@
 # Installation Guide for SPRINGBOOT
 
-### 1. Database Installation
+### 1. JAVA and Maven Installation
+
+- text here
+
+### 2. Database Installation
 
 - Login to your Local / Virtual Machine
 
@@ -15,7 +19,7 @@ sudo chmod 700 /var/lib/mysql && sudo chown -R mysql:mysql /var/lib/mysql
 sudo systemctl start mysql && sudo systemctl enable mysql && sudo systemctl status mysql
 ```
 
-### 2. Database Credential
+### 3. Database Credential
 
 - Using the command below will enter the mysql command line interface. Hit **"Enter"** when asking for password. (No Default Password).
 
