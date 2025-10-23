@@ -2,7 +2,7 @@
 
 ### 1. JAVA and Maven Installation
 
-- Download the latest LTS version of JDK
+- Java installation
 
 ```bash
 # Update the system
