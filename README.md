@@ -108,10 +108,32 @@ exit
 # You can launch the post man in your app menu
 
 # Creating collection 
-  Select the collections menu in top-right of the window
-  Click the plus sign next to the collections menu
+  -- Select the collections menu in top-right of the window
+  -- Click the plus sign next to the collections menu
+  -- Choose the blank collection
 
-  ![alt text](image.png)
+# Add request
+  -- hover the collection name so that the options will appear on the right of collection name
+  -- click the plus icon
+
+# Creating environment
+  -- Choose the Environment menu below the collections menu
+  -- Click the plus icon next to Collections menu
+  -- Name your environment by changing the default name (New Environment) located top-right of the main window
+
+# Creating baseUrl
+  -- Click your environment that you want to create baseURL
+  -- add the name of your variable under Varialbe column and add your URL under the value column
+
+# Using the environment variable (baseURL)
+  -- Go to your collections and choose your collection
+  -- Add a request
+  -- Choose the Environment that you want to use (top-right corner of main window )
+  -- call the variable that you want to use inside
+      Ex. {{baseurl}}/posts/1/comments
+      between curly braces is the name that you put in your varialbe
+      and the "/posts/1/comments" is the address that you want to get 
+
 ```
 
 
