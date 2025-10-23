@@ -6,13 +6,25 @@
 
 ```bash
 # Update the system
-sudo apt update
+  sudo apt update
 
 # Install JDK
-sudo apt install default-jdk
+  sudo apt install default-jdk
 
 # Install specific JDK
-sudo apt install openjdk-17-jdk
+  sudo apt install openjdk-17-jdk
+```
+
+- Maven installation
+```bash
+# Update the system
+  sudo apt update
+
+# Maven installation
+  sudo apt install maven -y
+
+# Check if the maven is installed
+  mvn -version
 ```
 
 ### 2. Database Installation
