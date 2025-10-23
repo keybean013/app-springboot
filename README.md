@@ -111,5 +111,5 @@ exit
   Select the collections menu in top-right of the window
   Click the plus sign next to the collections menu
 
-  ![Postman Screenshot](./image.png)
+  ![Postman Screenshot](https://github.com/keybean013/app-springboot/blob/main/image.png?raw=true)
 ```
