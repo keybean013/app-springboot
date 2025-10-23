@@ -134,7 +134,7 @@ sudo snap install postman
 - Go to your collections and choose your collection
 - Add a request
 - Choose the Environment that you want to use (top-right corner of main window )
-- call the variable that you want to use inside
+- Call the variable that you want to use inside
   > [!NOTE]  
   > Example: `{{baseurl}}/posts/1/comments`
   >
