@@ -79,7 +79,7 @@ USE wordpress;
 exit
 ```
 
-### 4. Workbench installation
+### 4. Workbench installation in Ubuntu Desktop
 
 - Open this link (https://dev.mysql.com/downloads/workbench/) to download the package
 
@@ -90,7 +90,7 @@ exit
 # look for the package name
   ls
 
-# installation
+# installation ()
   sudo apt install ./mysql-workbench-community_8.0.44-1ubuntu24.04_amd64.deb
 ```
 
