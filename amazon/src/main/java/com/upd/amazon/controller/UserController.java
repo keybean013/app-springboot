@@ -3,6 +3,7 @@ package com.upd.amazon.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,8 +14,10 @@ import com.upd.amazon.service.UserService;
 
 @RestController
 public class UserController {
-    String kingkong = "123";
-    String kangkang = "111";
+
+    @Value("${spring.application.name}")
+    private String appName;
+
     @Autowired
     private UserService userService;
 
@@ -35,6 +38,21 @@ public class UserController {
     public List<User> getAllActiveUsers() {
         return userService.getAllActiveUsers();
     }
+
+
+    //  testing
+
+    @GetMapping("/user/test")
+    public String test() {
+        String viewName = getViewName();
+        return viewName;
+    }
+
+    private String getViewName() {
+        System.out.println(appName);
+        return appName;
+    }
+
 
 }
 
