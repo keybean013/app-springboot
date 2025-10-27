@@ -13,7 +13,8 @@ import com.upd.amazon.service.UserService;
 
 @RestController
 public class UserController {
-
+    String kingkong = "123";
+    String kangkang = "111";
     @Autowired
     private UserService userService;
 
