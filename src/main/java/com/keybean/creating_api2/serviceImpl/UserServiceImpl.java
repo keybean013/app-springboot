@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
+// What is the meaning of "implements" after the "UserServiceImpl"?
+// I guess this class is for implementation of UserService.
+// Confusing coz I didn't even use the "UserService" here.
 public class UserServiceImpl implements UserService {
 
+    // What is purpose of "Autowired" annotation?
     @Autowired
     private UserRepository userRepository;
 
