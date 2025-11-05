@@ -1,7 +1,7 @@
-package com.keybean.api_practice.controllers;
+package com.keybean.creating_api2.Controller;
 
-import com.keybean.api_practice.entity.User;
-import com.keybean.api_practice.service.UserService;
+import com.keybean.creating_api2.entity.User;
+import com.keybean.creating_api2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +21,12 @@ public class UserController {
         return userService.getById(id);
     }
 
-  // setting the value of variable appName
-  @Value("${spring.application.name}")
-  private String appName;
+    @Value("${spring.application.name}")
+    private String appName;
 
-
-    // End point or path
-  // getter method that will return the appName
-  @GetMapping("/app/name")
-  private String getAppName() {
-    return appName;
-  }
+    @GetMapping("/test")
+    private String getAppName() {
+        return appName;
+    }
 
 }
