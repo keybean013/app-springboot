@@ -1,7 +1,17 @@
 package com.keybean.creating_api2.service;
 
-import com.keybean.creating_api2.entity.User;
+import com.keybean.creating_api2.dto.UserDTO;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
+@Transactional
 public interface UserService {
-    User getById(Long id);
+
+  UserDTO getUserById(Long id);
+
+  List<UserDTO> getAllUsers();
+
 }
