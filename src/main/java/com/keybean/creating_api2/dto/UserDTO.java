@@ -2,6 +2,7 @@ package com.keybean.creating_api2.dto;
 
 public class UserDTO {
 
+  //  FORMAT NG IBABALIK MO NA OBJECT AS RESPONSE
   private Long userId;
   private String userName;
   private String firstName;

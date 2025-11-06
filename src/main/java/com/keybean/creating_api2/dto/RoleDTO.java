@@ -2,6 +2,7 @@ package com.keybean.creating_api2.dto;
 
 public class RoleDTO {
 
+  //  FORMAT NG IBABALIK MO NA OBJECT AS RESPONSE
   private Long roleId;
   private String roleName;
   private String roleStatus;

@@ -10,10 +10,4 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long>,
         JpaSpecificationExecutor<User> {
 
-  @Query(value = "SELECT * FROM user WHERE id = ?1", nativeQuery = true)
-  User getUserById(Long id);
-
-  @Query(value = "SELECT * FROM user", nativeQuery = true)
-  List<User> getAllUsers();
-
 }

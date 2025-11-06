@@ -12,18 +12,5 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
-    @GetMapping("/user/{id}")
-    public UserDTO getUserById (@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
-
-    @GetMapping("/users")
-    public List<UserDTO> getAllUsers () {
-        return userService.getAllUsers();
-    }
-
 
 }

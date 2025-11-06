@@ -12,17 +12,4 @@ import java.util.List;
 @RestController
 public class RoleController {
 
-  @Autowired
-  private RoleService roleService;
-
-  @GetMapping("/roles")
-  public List<RoleDTO> getAllRoles(){
-    return roleService.getAllRoles();
-  }
-
-  @GetMapping("/role/{id}")
-  public RoleDTO getRoleById(@PathVariable Long id){
-    return roleService.getRoleById(id);
-  }
-
 }
