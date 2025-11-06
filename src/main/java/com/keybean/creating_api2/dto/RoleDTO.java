@@ -2,28 +2,28 @@ package com.keybean.creating_api2.dto;
 
 public class RoleDTO {
 
-  private Long id;
+  private Long roleId;
   private String roleName;
-  private String status;
-  private String created;
-  private String updated;
+  private String roleStatus;
+  private String roleCreated;
+  private String roleUpdated;
 
   public RoleDTO(){}
 
-  public RoleDTO(Long id, String roleName, String status, String created, String updated) {
-    this.id = id;
+  public RoleDTO(Long roleId, String roleName, String roleStatus, String roleCreated, String roleUpdated) {
+    this.roleId = roleId;
     this.roleName = roleName;
-    this.status = status;
-    this.created = created;
-    this.updated = updated;
+    this.roleStatus = roleStatus;
+    this.roleCreated = roleCreated;
+    this.roleUpdated = roleUpdated;
   }
 
-  public Long getId() {
-    return id;
+  public Long getRoleId() {
+    return roleId;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setRoleId(Long roleId) {
+    this.roleId = roleId;
   }
 
   public String getRoleName() {
@@ -34,27 +34,27 @@ public class RoleDTO {
     this.roleName = roleName;
   }
 
-  public String getStatus() {
-    return status;
+  public String getRoleStatus() {
+    return roleStatus;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setRoleStatus(String roleStatus) {
+    this.roleStatus = roleStatus;
   }
 
-  public String getCreated() {
-    return created;
+  public String getRoleCreated() {
+    return roleCreated;
   }
 
-  public void setCreated(String created) {
-    this.created = created;
+  public void setRoleCreated(String roleCreated) {
+    this.roleCreated = roleCreated;
   }
 
-  public String getUpdated() {
-    return updated;
+  public String getRoleUpdated() {
+    return roleUpdated;
   }
 
-  public void setUpdated(String updated) {
-    this.updated = updated;
+  public void setRoleUpdated(String roleUpdated) {
+    this.roleUpdated = roleUpdated;
   }
 }

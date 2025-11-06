@@ -13,20 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long>,
   @Query(value = "SELECT * FROM user WHERE id = ?1", nativeQuery = true)
   User getUserById(Long id);
 
-  @Query(
-      value = "select \n" +
-          "u.id as id, \n" +
-          "u.username as username,\n" +
-          "u.first_name as first_name,\n" +
-          "u.last_name  as last_name,\n" +
-          "u.role_id as role_id, \n" +
-          "u.session_key as session_key,\n" +
-          "r.role_name as role_name \n" +
-          "from `user` u JOIN role r \n" +
-          "ON u.role_id = r.id;",
-      nativeQuery = true
-  )
-  List<User> findAllUsersWithRolesRaw();
-
+  @Query(value = "SELECT * FROM user", nativeQuery = true)
+  List<User> getAllUsers();
 
 }

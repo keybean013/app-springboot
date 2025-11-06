@@ -36,11 +36,11 @@ public class RoleServiceImpl implements RoleService {
       String roleUpdated = row.getUpdated();
 
       RoleDTO role = new RoleDTO();
-      role.setId( roleId );
+      role.setRoleId( roleId );
       role.setRoleName( roleName );
-      role.setStatus( roleStatus );
-      role.setCreated( roleCreated );
-      role.setUpdated( roleUpdated );
+      role.setRoleStatus( roleStatus );
+      role.setRoleCreated( roleCreated );
+      role.setRoleUpdated( roleUpdated );
 
       roles.add( role );
     }
@@ -57,11 +57,11 @@ public class RoleServiceImpl implements RoleService {
     if (role == null) return null; // Handle not found
 
     RoleDTO roleDTO = new RoleDTO();
-    roleDTO.setId(role.getId());
+    roleDTO.setRoleId(role.getId());
     roleDTO.setRoleName(role.getRoleName());
-    roleDTO.setStatus(role.getStatus());
-    roleDTO.setCreated(role.getCreated());
-    roleDTO.setUpdated(role.getUpdated());
+    roleDTO.setRoleStatus(role.getStatus());
+    roleDTO.setRoleCreated(role.getCreated());
+    roleDTO.setRoleUpdated(role.getUpdated());
 
     return roleDTO;
   }
