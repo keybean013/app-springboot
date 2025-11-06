@@ -11,6 +11,10 @@ public class User {
     @Column
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private Role role;
+
     @Column(name = "username")
     private String username;
 
@@ -43,6 +47,10 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isActive = isActive;
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     public Long getId() {
