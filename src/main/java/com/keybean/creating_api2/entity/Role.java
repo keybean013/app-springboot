@@ -36,6 +36,11 @@ public class Role {
 
     }
 
+    @PreUpdate
+    protected void onUpdate() {
+        this.updated = LocalDateTime.now();
+    }
+
     @PrePersist
     void onCreate() {
         this.created = LocalDateTime.now();

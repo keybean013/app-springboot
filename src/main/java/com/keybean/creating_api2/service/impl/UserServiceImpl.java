@@ -1,6 +1,5 @@
 package com.keybean.creating_api2.service.impl;
 
-
 import com.keybean.creating_api2.dto.user.CreateUserDto;
 import com.keybean.creating_api2.dto.user.UserResponseDto;
 import com.keybean.creating_api2.dto.user.UserUpdateDto;
@@ -13,7 +12,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -22,6 +21,7 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
 
     public UserServiceImpl(
+
             UserRepository userRepository,
             RoleRepository roleRepository
     ) {

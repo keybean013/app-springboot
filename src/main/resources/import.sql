@@ -1,8 +1,8 @@
-INSERT INTO role (id, created, role_name, status, updated) VALUE (1, "nov 6", "developer", "valid", "nov 6");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (2, "nov 6", "staff", "valid", "nov 6");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (3, "nov 6", "developer", "valid", "nov 6");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (4, "nov 6", "staff", "valid", "nov 6");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (5, "nov 6", "staff", "valid", "nov 6");
+INSERT INTO role (id, created, role_name, status, updated) VALUE (1, "developer", "valid", ;
+INSERT INTO role (id, created, role_name, status, updated) VALUE (2, "staff", "valid");
+INSERT INTO role (id, created, role_name, status, updated) VALUE (3, "developer", "valid");
+INSERT INTO role (id, created, role_name, status, updated) VALUE (4, "staff", "valid");
+INSERT INTO role (id, created, role_name, status, updated) VALUE (5, "staff", "valid");
 
 
 -- INSERT INTO user (id, role_id,  username, password, first_name, last_name, email, session_key, is_active) VALUE (1, 1, "username1", "password1", "samplename1", "lastname1", "sample@gmail.com", NULL, true);
