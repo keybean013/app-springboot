@@ -2,47 +2,75 @@ package com.keybean.creating_api2.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "role")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
     @Column(name = "role_name")
     private String roleName;
 
+    @Column(name = "created")
+    private LocalDateTime created;
+
+    @Column(name = "updated")
+    private LocalDateTime updated;
+
     @Column(name = "status")
     private String status;
 
-    @Column(name = "created")
-    private String created;
-
-    @Column(name = "updated")
-    private String updated;
-
-    public Role () {}
-
-    public Role(Long id, String roleName, String status, String created, String updated) {
+    public Role(LocalDateTime updated, Long id, String roleName, LocalDateTime created, String status) {
+        this.updated = updated;
         this.id = id;
         this.roleName = roleName;
-        this.status = status;
         this.created = created;
-        this.updated = updated;
+        this.status = status;
+    }
+
+    public Role() {
+
+    }
+
+    @PrePersist
+    void onCreate() {
+        this.created = LocalDateTime.now();
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getRoleName() {
         return roleName;
     }
 
-    public void setName(String name) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
     }
 
     public String getStatus() {
@@ -53,19 +81,14 @@ public class Role {
         this.status = status;
     }
 
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.keybean.creating_api2.entity;
 
+
 import jakarta.persistence.*;
 
 @Entity
@@ -8,50 +9,41 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @Column(name = "username", unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
     @Column(name = "session_key")
     private String sessionKey;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", nullable = false)
     private boolean isActive;
 
     public User () {}
 
-    public User(Long id, Role role, String username, String password, String firstName, String lastName, String email, String sessionKey, boolean isActive) {
-        this.id = id;
-        this.role = role;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.sessionKey = sessionKey;
-        this.isActive = isActive;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Role getRole() {
@@ -86,20 +78,20 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getSessionKey() {
@@ -116,5 +108,20 @@ public class User {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", role=" + role +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", email='" + email + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", sessionKey='" + sessionKey + '\'' +
+                ", isActive=" + isActive +
+                '}';
     }
 }
