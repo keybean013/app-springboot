@@ -3,6 +3,8 @@ package com.keybean.creating_api2.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -50,7 +52,7 @@ public class User {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Optional<Role> role) {
         this.role = role;
     }
 

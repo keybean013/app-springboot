@@ -13,7 +13,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Optional;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -41,7 +41,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(CreateUserDto dto) {
-        Role role = roleRepository.findById(dto.getRoleId());
+
+        Role role = roleRepository.findById(dto.getRoleId())
+                .orElseThrow(() -> new RuntimeException("Role not found"));
 
         User user = new User();
         user.setRole(role);
@@ -50,17 +52,20 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
+        user.setActive(true);
 
         userRepository.save(user);
     }
 
     @Override
     public void updateUser(Long id, UserUpdateDto dto) {
-        User user = userRepository.findById(id);
+
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (dto.getRoleId() != null) {
-            Role role = roleRepository.findById(dto.getRoleId());
-
+            Role role = roleRepository.findById(dto.getRoleId())
+                    .orElseThrow(() -> new RuntimeException("Role not found"));
             user.setRole(role);
         }
 
@@ -74,6 +79,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new RuntimeException("User not found");
+        }
         userRepository.deleteById(id);
     }
 }
+
