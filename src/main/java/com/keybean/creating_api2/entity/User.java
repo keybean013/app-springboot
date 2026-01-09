@@ -1,9 +1,6 @@
 package com.keybean.creating_api2.entity;
 
-
 import jakarta.persistence.*;
-
-import java.util.Optional;
 
 @Entity
 @Table(name = "users")
@@ -13,32 +10,44 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "role_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = true)
     private String password;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "email", nullable = false)
-    private String email;
-
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "session_key")
     private String sessionKey;
 
     @Column(name = "is_active", nullable = false)
-    private boolean isActive;
+    private boolean isActive = false;
 
     public User () {}
+
+    public User(Long id, Role role, String username, String password, String firstName, String lastName, String email, String sessionKey, boolean isActive) {
+        this.id = id;
+        this.role = role;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.sessionKey = sessionKey;
+        this.isActive = isActive;
+    }
 
     public Long getId() {
         return id;
@@ -80,20 +89,20 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSessionKey() {
@@ -111,19 +120,124 @@ public class User {
     public void setActive(boolean active) {
         isActive = active;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", role=" + role +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", email='" + email + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", sessionKey='" + sessionKey + '\'' +
-                ", isActive=" + isActive +
-                '}';
-    }
 }
+//
+//@Entity
+//@Table(name = "users")
+//public class User {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "role_id")
+//    private Role role;
+//
+//    @Column(name = "username")
+//    private String username;
+//
+//    @Column(name = "password")
+//    private String password;
+//
+//    @Column(name = "first_name")
+//    private String firstName;
+//
+//    @Column(name = "last_name")
+//    private String lastName;
+//
+//    @Column(name = "email")
+//    private String email;
+//
+//    @Column(name = "session_key")
+//    private String sessionKey;
+//
+//    @Column(name = "is_active")
+//    private boolean isActive;
+//
+//    public User () {}
+//
+//    public User(Long id, Role role, String username, String password, String firstName, String lastName, String email, String sessionKey, boolean isActive) {
+//        this.id = id;
+//        this.role = role;
+//        this.username = username;
+//        this.password = password;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.sessionKey = sessionKey;
+//        this.isActive = isActive;
+//    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public Role getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getSessionKey() {
+//        return sessionKey;
+//    }
+//
+//    public void setSessionKey(String sessionKey) {
+//        this.sessionKey = sessionKey;
+//    }
+//
+//    public boolean isActive() {
+//        return isActive;
+//    }
+//
+//    public void setActive(boolean active) {
+//        isActive = active;
+//    }
+//}

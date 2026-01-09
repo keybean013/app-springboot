@@ -1,8 +1,8 @@
-INSERT INTO role (id, created, role_name, status, updated) VALUE (1, "developer", "valid", ;
-INSERT INTO role (id, created, role_name, status, updated) VALUE (2, "staff", "valid");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (3, "developer", "valid");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (4, "staff", "valid");
-INSERT INTO role (id, created, role_name, status, updated) VALUE (5, "staff", "valid");
+INSERT INTO roles (id, role_name, status, created, updated) VALUE (1, "developer", "valid", NOW(), NOW());
+INSERT INTO roles (id, role_name, status, created, updated) VALUE (2, "admin", "valid", NOW(), NOW());
+INSERT INTO roles (id, role_name, status, created, updated) VALUE (3, "senior dev", "valid", NOW(), NOW());
+INSERT INTO roles (id, role_name, status, created, updated) VALUE (4, "team lead", "valid", NOW(), NOW());
+INSERT INTO roles (id, role_name, status, created, updated) VALUE (5, "manager", "valid", NOW(), NOW());
 
 
 -- INSERT INTO user (id, role_id,  username, password, first_name, last_name, email, session_key, is_active) VALUE (1, 1, "username1", "password1", "samplename1", "lastname1", "sample@gmail.com", NULL, true);
@@ -28,13 +28,13 @@ INSERT INTO users (id, role_id, username, password, first_name, last_name, email
 
 INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (3, 3, 'username3', 'password13', 'samplename13', 'lastname13', 'sample@gmail3.com', NULL, true);
 
-INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (4, 4, 'username4', 'password14', 'samplename14', 'lastname14', 'sample@gmail4.com', NULL, true);
+INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (4, 4, 'username4', 'password14', 'samplename14', 'lastname14', 'sample@gmail4.com', NULL, false);
 
 INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (5, 5, 'username5', 'password15', 'samplename15', 'lastname15', 'sample@gmail5.com', NULL, true);
 
 INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (6, 1, 'username6', 'password16', 'samplename16', 'lastname16', 'sample@gmail6.com', NULL, true);
 
-INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (7, 2, 'username7', 'password17', 'samplename18', 'lastname17', 'sample@gmail7.com', NULL, true);
+INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (7, 2, 'username7', 'password17', 'samplename18', 'lastname17', 'sample@gmail7.com', NULL, false);
 
 INSERT INTO users (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUES (8, 3, 'username8', 'password18', 'samplename19', 'lastname18', 'sample@gmail8.com', NULL, true);
 

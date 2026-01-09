@@ -1,15 +1,30 @@
 package com.keybean.creating_api2.service;
 
-import com.keybean.creating_api2.dto.user.CreateUserDto;
+
+import com.keybean.creating_api2.dto.user.UserCreateDto;
 import com.keybean.creating_api2.dto.user.UserResponseDto;
 import com.keybean.creating_api2.dto.user.UserUpdateDto;
 
 import java.util.List;
 
 public interface UserService {
+
+    List<UserResponseDto> getAllUsers();
     UserResponseDto getUserById(Long id);
-    List<UserResponseDto> getAllUserResponse();
-    void createUser(CreateUserDto dto);
+    void createUser(UserCreateDto dto);
     void updateUser(Long id, UserUpdateDto dto);
-    void deleteUser(Long id);
+    void deleteUser (Long id);
 }
+//
+//public interface UserService {
+//
+//    UserResponseDto getUserById(Long id);
+//
+//    List<UserResponseDto> getAllUsers();
+//
+//    void createUser(UserCreateDto dto);
+//
+//    void updateUser(Long id, UserUpdateDto dto);
+//
+//    void deleteUser(Long id);
+//}
