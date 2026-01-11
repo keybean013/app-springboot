@@ -1,48 +1,39 @@
-package com.keybean.creating_api2.entity;
+package com.keybean.creating_api2.dto.user.request;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.PrePersist;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserCreateDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @NotNull(message = "Role id is required.")
+    private Long roleId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role role;
-
-    @Column(name = "username", unique = true,nullable = false, length = 20)
+    @NotBlank(message = "Username is required")
+    @Size(min = 5, max = 20, message = "Username must contain 5 to 20 characters")
     private String username;
 
-    @Column(name = "password", nullable = false, length = 20)
+    @NotBlank(message = "Password is required")
+    @Size(min = 5, max = 20, message = "Password must contain 5 to 20 characters")
     private String password;
 
-    @Column(name = "first_name", nullable = false)
+    @NotBlank(message = "First name is required")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Email(message = "You must put a valid email format. Ex. sample01@gmail.com")
+    @NotBlank(message = "Email is required")
     private String email;
 
-    @Column(name = "created", nullable = false)
     private LocalDateTime created;
-
-    @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
-
-    @Column(name = "session_key")
-    private String sessionKey;
-
-    @Column(name = "is_active", nullable = false)
-    private boolean isActive = false;
+    private Boolean isActive = false;
 
     @PrePersist
     protected void onCreate () {
@@ -50,17 +41,11 @@ public class User {
         updated = created;
     }
 
-    @PreUpdate
-    protected void onUpdate () {
-        updated = LocalDateTime.now();
-    }
+    public UserCreateDto () {}
 
-    public User () {}
-
-    public User(Long id, Role role, String username, String password, String firstName, String lastName, String email,
-                LocalDateTime created, LocalDateTime updated, String sessionKey, boolean isActive) {
-        this.id = id;
-        this.role = role;
+    public UserCreateDto(Long roleId, String username, String password, String firstName, String lastName,
+                         String email, LocalDateTime created, LocalDateTime updated, Boolean isActive) {
+        this.roleId = roleId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -68,24 +53,15 @@ public class User {
         this.email = email;
         this.created = created;
         this.updated = updated;
-        this.sessionKey = sessionKey;
         this.isActive = isActive;
     }
 
-    public Long getId() {
-        return id;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public String getUsername() {
@@ -144,19 +120,11 @@ public class User {
         this.updated = updated;
     }
 
-    public String getSessionKey() {
-        return sessionKey;
-    }
-
-    public void setSessionKey(String sessionKey) {
-        this.sessionKey = sessionKey;
-    }
-
-    public boolean isActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 }
