@@ -21,25 +21,13 @@ INSERT INTO roles (id, role_name, status, created_at, updated_at, deleted_at) VA
 -- ================================
 -- USERS DATA (TABLE: users)
 -- ================================
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (1, 1, 'username1', 'password1', 'samplename1', 'lastname1', 'sample@gmail1.com', NOW(), NOW(), null, false);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (2, 2, 'username2', 'password12', 'samplename12', 'lastname12', 'sample@gmail2.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (3, 3, 'username3', 'password13', 'samplename13', 'lastname13', 'sample@gmail3.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (4, 4, 'username4', 'password14', 'samplename14', 'lastname14', 'sample@gmail4.com', NOW(), NOW(), NULL, false);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (5, 5, 'username5', 'password15', 'samplename15', 'lastname15', 'sample@gmail5.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (6, 1, 'username6', 'password16', 'samplename16', 'lastname16', 'sample@gmail6.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (7, 2, 'username7', 'password17', 'samplename18', 'lastname17', 'sample@gmail7.com', NOW(), NOW(), NULL, false);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (8, 3, 'username8', 'password18', 'samplename19', 'lastname18', 'sample@gmail8.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (9, 4, 'username9', 'password19', 'samplename10', 'lastname19', 'sample@gmail9.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (10, 5, 'username10', 'password12', 'samplename11', 'lastname10', 'sample@gmail0.com', NOW(), NOW(), NULL, true);
---
--- INSERT INTO users (id, role_id, username, password, first_name, last_name, email, created, updated, session_key, is_active) VALUES (11, 2, 'username11', 'password11', 'samplename12', 'lastname11', 'sample@gmail20.com', NOW(), NOW(), NULL, true);
+
+INSERT INTO users (id, role_id, username, password, first_name, last_name, contact_no, address, email, is_active, created_at, updated_at, deleted_at) VALUES (1, 1, 'username1', 'password1', 'samplename1', 'lastname1', '09234123412', '10. p zamora st. sta. lucia novaliches qc', 'sample11@gmail.com', false, NOW(), NOW(), null);
+
+INSERT INTO users (id, role_id, username, password, first_name, last_name, contact_no, address, email, is_active, created_at, updated_at, deleted_at) VALUES (2, 2, 'username2', 'password12', 'samplename12', 'lastname12', '09231423123', '10. p zamora st. sta. lucia novaliches qc', 'sample12@gmail.com', false, NOW(), NOW(), null);
+
+INSERT INTO users (id, role_id, username, password, first_name, last_name, contact_no, address, email, is_active, created_at, updated_at, deleted_at) VALUES (3, 3, 'username3', 'password13', 'samplename13', 'lastname13', '02-412134', '10. p zamora st. sta. lucia novaliches qc', 'sample13@gmail.com', true, NOW(), NOW(), null);
+
+INSERT INTO users (id, role_id, username, password, first_name, last_name, contact_no, address, email, is_active, created_at, updated_at, deleted_at) VALUES (4, 4, 'username4', 'password14', 'samplename14', 'lastname14', '09123245621', '10. p zamora st. sta. lucia novaliches qc', 'sample14@gmail.com', false, NOW(), NOW(), null);
+
+INSERT INTO users (id, role_id, username, password, first_name, last_name, contact_no, address, email, is_active, created_at, updated_at, deleted_at) VALUES (5, 5, 'username5', 'password15', 'samplename15', 'lastname15', '02-421322', '10. p zamora st. sta. lucia novaliches qc', 'sample15@gmail.com', true, NOW(), NOW(), null);

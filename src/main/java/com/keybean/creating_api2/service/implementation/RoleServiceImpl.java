@@ -27,7 +27,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Optional<RoleResponseDto> getRoleById(Long id) {
+    public RoleResponseDto getRoleById(Long id) {
         return roleRepository.findRoleById(id);
     }
 

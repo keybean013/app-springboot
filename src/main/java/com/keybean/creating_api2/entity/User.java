@@ -16,7 +16,7 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @Column(name = "username", nullable = false, length = 20)
+    @Column(name = "username", nullable = false, length = 20, unique = true)
     private String username;
 
     @Column(name = "password", nullable = false, length = 20)
@@ -34,7 +34,7 @@ public class User {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "is_active", nullable = false)
@@ -124,11 +124,11 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 

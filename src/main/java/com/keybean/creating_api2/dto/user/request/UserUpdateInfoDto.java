@@ -4,22 +4,16 @@ import jakarta.validation.constraints.NotBlank;
 
 public class UserUpdateInfoDto {
 
-    @NotBlank(message = "Role id is requried.")
     private Long roleId;
 
-    @NotBlank(message = "first name is requried.")
     private String firstName;
 
-    @NotBlank(message = "last name is requried.")
     private String lastName;
 
-    @NotBlank(message = "contact No is requried.")
     private String contactNo;
 
-    @NotBlank(message = "address is requried.")
     private String address;
 
-    @NotBlank(message = "email is requried.")
     private String email;
 
     public UserUpdateInfoDto() {}

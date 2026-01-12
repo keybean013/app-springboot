@@ -1,0 +1,61 @@
+package com.keybean.creating_api2.controller;
+
+import com.keybean.creating_api2.dto.user.request.UserCreatedDto;
+import com.keybean.creating_api2.dto.user.request.UserUpdateInfoDto;
+import com.keybean.creating_api2.dto.user.response.UserResponseDto;
+import com.keybean.creating_api2.dto.user.response.UserResponseInfoDto;
+import com.keybean.creating_api2.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api")
+public class UserController {
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/users")
+    public ResponseEntity<List<UserResponseDto>> getAllUsers () {
+        List<UserResponseDto> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
+    @RequestMapping("/user/{id}")
+    public ResponseEntity<Optional<UserResponseDto>> getUserById (@PathVariable Long id) {
+        Optional<UserResponseDto> user = userService.getUserByid(id);
+        return ResponseEntity.ok(user);
+    }
+
+
+    @RequestMapping("/users/info")
+    public ResponseEntity<List<UserResponseInfoDto>> getAllUsersInfo () {
+        List<UserResponseInfoDto> userInfo = userService.getAllUsersInfo();
+        return ResponseEntity.ok(userInfo);
+    }
+    @RequestMapping("/user/info/{id}")
+    public ResponseEntity<Optional<UserResponseInfoDto>> getUserInfoById (@PathVariable Long id) {
+        Optional<UserResponseInfoDto> user = userService.getUserInfoById(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/user/new")
+    public ResponseEntity<Void> createUser (@RequestBody UserCreatedDto dto) {
+        userService.createUser(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/update/info/{id}")
+    public ResponseEntity<Void> updateUserInfo (@RequestBody UserUpdateInfoDto dto, @PathVariable Long id) {
+        userService.updateUserInfo(dto, id);
+        return ResponseEntity.noContent().build();
+    }
+
+}

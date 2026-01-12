@@ -85,6 +85,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
         JOIN u.role r
         WHERE u.id = :id
     """)
-    Optional<UserResponseDto> findUserInfoById(@Param("id") Long id);
+    Optional<UserResponseInfoDto> findUserInfoById(@Param("id") Long id);
 
 }

@@ -27,8 +27,8 @@ public class RoleController {
         return ResponseEntity.ok(roles);
     }
     @RequestMapping("/role/{id}")
-    public ResponseEntity<Optional<RoleResponseDto>> getRoleById (@PathVariable Long id) {
-        Optional<RoleResponseDto> role = roleService.getRoleById(id);
+    public ResponseEntity<RoleResponseDto> getRoleById (@PathVariable Long id) {
+        RoleResponseDto role = roleService.getRoleById(id);
         return  ResponseEntity.ok(role);
     }
 
