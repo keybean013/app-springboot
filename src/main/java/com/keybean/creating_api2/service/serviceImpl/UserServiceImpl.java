@@ -50,9 +50,6 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
-        user.setCreated(dto.getCreated());
-        user.setUpdated(dto.getUpdated());
-        user.setActive(dto.getActive());
 
         userRepository.save(user);
 
@@ -66,11 +63,9 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new RuntimeException("User not found."));
 
         user.setRole(role);
-        user.setUsername(dto.getUsername());
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
-        user.setUpdated(dto.getUpdated());
 
         userRepository.save(user);
 

@@ -8,16 +8,15 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role_Id")
     private Role role;
 
-    @Column(name = "username", unique = true,nullable = false, length = 20)
+    @Column(name = "username", unique = true, length = 20, nullable = false)
     private String username;
 
     @Column(name = "password", nullable = false, length = 20)
@@ -29,13 +28,13 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "created", nullable = false)
+    @Column(name = "created", updatable = false)
     private LocalDateTime created;
 
-    @Column(name = "updated", nullable = false)
+    @Column(name = "updated")
     private LocalDateTime updated;
 
     @Column(name = "session_key")

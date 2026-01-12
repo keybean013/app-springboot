@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("""
         SELECT new com.keybean.creating_api2.dto.user.response.UserResponseDto(
             u.id,
-            r.id,
+            r,
             u.username,
             u.firstName,
             u.lastName,
@@ -33,7 +33,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("""
         SELECT new com.keybean.creating_api2.dto.user.response.UserResponseDto(
             u.id,
-            r.id,
+            r,
             u.username,
             u.firstName,
             u.lastName,

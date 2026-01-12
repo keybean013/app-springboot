@@ -1,6 +1,5 @@
 package com.keybean.creating_api2.dto.user.request;
 
-import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,43 +7,37 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
+
 public class UserCreateDto {
 
-    @NotNull(message = "Role id is required.")
+    @NotNull(message = "Role name is required")
     private Long roleId;
 
-    @NotBlank(message = "Username is required")
-    @Size(min = 5, max = 20, message = "Username must contain 5 to 20 characters")
+    @NotBlank(message = "Username is requried")
+    @Size(min = 5, max = 30, message = "Username must contain 5 to 30 characters")
     private String username;
 
-    @NotBlank(message = "Password is required")
-    @Size(min = 5, max = 20, message = "Password must contain 5 to 20 characters")
+    @NotBlank(message = "Password is requried")
+    @Size(min = 5, max = 30, message = "Password must contain 5 to 30 characters")
     private String password;
 
-    @NotBlank(message = "First name is required")
+    @NotBlank(message = "First name is requried")
     private String firstName;
 
     @NotBlank(message = "Last name is required")
     private String lastName;
 
-    @Email(message = "You must put a valid email format. Ex. sample01@gmail.com")
     @NotBlank(message = "Email is required")
+    @Email(message = "You must out an invalid email format. Ex. sample01@Gmail.com")
     private String email;
 
     private LocalDateTime created;
     private LocalDateTime updated;
-    private Boolean isActive = false;
-
-    @PrePersist
-    protected void onCreate () {
-        created = LocalDateTime.now();
-        updated = created;
-    }
 
     public UserCreateDto () {}
 
     public UserCreateDto(Long roleId, String username, String password, String firstName, String lastName,
-                         String email, LocalDateTime created, LocalDateTime updated, Boolean isActive) {
+                         String email, LocalDateTime created, LocalDateTime updated ){
         this.roleId = roleId;
         this.username = username;
         this.password = password;
@@ -53,7 +46,7 @@ public class UserCreateDto {
         this.email = email;
         this.created = created;
         this.updated = updated;
-        this.isActive = isActive;
+
     }
 
     public Long getRoleId() {
@@ -118,13 +111,5 @@ public class UserCreateDto {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
     }
 }

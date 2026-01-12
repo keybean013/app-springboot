@@ -10,38 +10,22 @@ import java.time.LocalDateTime;
 
 public class UserUpdateDto {
 
-    @NotNull(message = "Role id is required.")
     private Long roleId;
-
-    @NotBlank(message = "Username is required")
-    @Size(min = 5, max = 20, message = "Password must contain 5 to 20 characters")
-    private String username;
-
-    @NotBlank(message = "First name is required")
     private String firstName;
-
-    @NotBlank(message = "Last name is required")
     private String lastName;
 
-    @Email(message = "You must put a valid email format. Ex. sample01@gmail.com")
+    @Email(message = "You must out an invalid email format. Ex. sample01@Gmail.com")
     private String email;
 
-    private LocalDateTime updated;
-
-    @PreUpdate
-    protected void onUpdate () {
-        updated = LocalDateTime.now();
+    public UserUpdateDto() {
     }
 
-    public UserUpdateDto () {}
-
-    public UserUpdateDto(Long roleId, String username, String firstName, String lastName, String email, LocalDateTime updated) {
+    public UserUpdateDto(Long roleId, String firstName, String lastName, String email) {
         this.roleId = roleId;
-        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.updated = updated;
+
     }
 
     public Long getRoleId() {
@@ -50,14 +34,6 @@ public class UserUpdateDto {
 
     public void setRoleId(Long roleId) {
         this.roleId = roleId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getFirstName() {
@@ -82,13 +58,5 @@ public class UserUpdateDto {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public LocalDateTime getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(LocalDateTime updated) {
-        this.updated = updated;
     }
 }

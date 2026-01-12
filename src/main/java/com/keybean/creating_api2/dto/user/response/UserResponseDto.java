@@ -1,32 +1,34 @@
 package com.keybean.creating_api2.dto.user.response;
 
+import com.keybean.creating_api2.entity.Role;
+
 import java.time.LocalDateTime;
 
 public class UserResponseDto {
 
     private Long id;
-    private Long roleId;
+    private Role role;
     private String username;
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDateTime updated;
     private LocalDateTime created;
+    private LocalDateTime updated;
     private String sessionKey;
     private Boolean isActive;
 
     public UserResponseDto () {}
 
-    public UserResponseDto(Long id, Long roleId, String username, String firstName, String lastName, String email,
-                           LocalDateTime updated, LocalDateTime created, String sessionKey, Boolean isActive) {
+    public UserResponseDto(Long id, Role role, String username, String firstName, String lastName,
+                           String email, LocalDateTime created, LocalDateTime updated, String sessionKey, Boolean isActive) {
         this.id = id;
-        this.roleId = roleId;
+        this.role = role;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.updated = updated;
         this.created = created;
+        this.updated = updated;
         this.sessionKey = sessionKey;
         this.isActive = isActive;
     }
@@ -35,8 +37,8 @@ public class UserResponseDto {
         return id;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
 
     public String getUsername() {
@@ -55,12 +57,12 @@ public class UserResponseDto {
         return email;
     }
 
-    public LocalDateTime getUpdated() {
-        return updated;
-    }
-
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    public LocalDateTime getUpdated() {
+        return updated;
     }
 
     public String getSessionKey() {
