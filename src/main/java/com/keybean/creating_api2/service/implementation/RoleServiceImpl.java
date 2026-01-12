@@ -42,7 +42,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void updatedDto(RoleUpdateDto dto, Long id) {
+    public void updateRole(RoleUpdateDto dto, Long id) {
         Role role = roleRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Role not found"));
 
@@ -52,6 +52,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public void deleteRole(Long id) {
-
+        roleRepository.removeRoleById(id);
     }
 }

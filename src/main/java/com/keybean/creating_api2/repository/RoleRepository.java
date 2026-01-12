@@ -40,4 +40,5 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
     """)
     Optional<RoleResponseDto> findRoleById(@Param("id") Long id);
 
+    void removeRoleById(Long id);
 }

@@ -12,6 +12,6 @@ public interface RoleService {
     List<RoleResponseDto> getAllRoles();
     Optional<RoleResponseDto> getRoleById(Long id);
     void createRole (RoleCreateDto dto);
-    void updatedDto (RoleUpdateDto dto, Long id);
+    void updateRole (RoleUpdateDto dto, Long id);
     void deleteRole (Long id);
 }
