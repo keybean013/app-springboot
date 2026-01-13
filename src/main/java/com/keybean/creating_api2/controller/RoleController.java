@@ -21,24 +21,24 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @RequestMapping("/roles")
+    @GetMapping("/roles")
     public ResponseEntity<List<RoleResponseDto>> getAllRoles () {
         List<RoleResponseDto> roles = roleService.getAllRoles();
         return ResponseEntity.ok(roles);
     }
-    @RequestMapping("/role/{id}")
+    @GetMapping("/roles/{id}")
     public ResponseEntity<RoleResponseDto> getRoleById (@PathVariable Long id) {
         RoleResponseDto role = roleService.getRoleById(id);
         return  ResponseEntity.ok(role);
     }
 
-    @PostMapping("role/new")
+    @PostMapping("roles")
     public ResponseEntity<Void> createRole (@RequestBody RoleCreateDto dto) {
         roleService.createRole(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("role/{id}")
+    @PutMapping("roles/{id}")
     public  ResponseEntity<Void> updateRole (
             @RequestBody RoleUpdateDto dto,
             @PathVariable Long id
@@ -47,7 +47,7 @@ public class RoleController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("role/{id}")
+    @DeleteMapping("roles/{id}")
     public ResponseEntity<Void> deleteRole (@PathVariable Long id) {
         roleService.deleteRole(id);
         return ResponseEntity.noContent().build();

@@ -11,6 +11,7 @@ import com.keybean.creating_api2.repository.RoleRepository;
 import com.keybean.creating_api2.repository.UserRepository;
 import com.keybean.creating_api2.service.UserService;
 import jakarta.transaction.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,10 +24,12 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -89,11 +92,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserPass(UserUpdatePasswordDto dto, Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
     }
 
     @Override
     public void hardDeleteUser(Long id) {
-
+        userRepository.removeUserById(id);
     }
 }
