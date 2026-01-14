@@ -89,5 +89,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     """)
     Optional<UserResponseInfoDto> findUserInfoById(@Param("id") Long id);
 
+    Optional<User> findByUsername(String username);
+
     void removeUserById(Long id);
 }

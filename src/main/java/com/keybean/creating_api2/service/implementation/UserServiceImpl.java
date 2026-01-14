@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
     }
 
+
     @Override
     public void hardDeleteUser(Long id) {
         userRepository.removeUserById(id);
