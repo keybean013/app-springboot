@@ -1,11 +1,13 @@
 package com.keybean.creating_api2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "roles")
+@SQLDelete(sql = "UPDATE roles SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
 public class Role {
 
     @Id

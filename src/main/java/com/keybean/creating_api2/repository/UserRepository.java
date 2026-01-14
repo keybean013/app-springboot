@@ -3,6 +3,8 @@ package com.keybean.creating_api2.repository;
 import com.keybean.creating_api2.dto.user.response.UserResponseDto;
 import com.keybean.creating_api2.dto.user.response.UserResponseInfoDto;
 import com.keybean.creating_api2.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
