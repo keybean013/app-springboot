@@ -1,13 +1,12 @@
 package com.keybean.creating_api2.dto.user.request;
 
-public class LogInRequestDto {
-
+public class LoginRequestDto {
     private String username;
     private String password;
 
-    public  LogInRequestDto () {}
+    public LoginRequestDto () {}
 
-    public LogInRequestDto(String username, String password) {
+    public LoginRequestDto(String username, String password) {
         this.username = username;
         this.password = password;
     }
