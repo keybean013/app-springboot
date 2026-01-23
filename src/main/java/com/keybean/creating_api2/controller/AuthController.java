@@ -1,6 +1,8 @@
 package com.keybean.creating_api2.controller;
 
+import com.keybean.creating_api2.dto.auth.response.AuthResponseDto;
 import com.keybean.creating_api2.dto.user.request.LogInRequestDto;
+import com.keybean.creating_api2.service.AuthService;
 import com.keybean.creating_api2.utils.JwtUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,14 +20,16 @@ public class AuthController {
 
     private final AuthenticationManager authManager;
     private final JwtUtil jwtUtil;
+    private final AuthService authService;
 
-    public AuthController(AuthenticationManager authManager, JwtUtil jwtUtil) {
+    public AuthController(AuthenticationManager authManager, JwtUtil jwtUtil, AuthService authService) {
         this.authManager = authManager;
         this.jwtUtil = jwtUtil;
+        this.authService = authService;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LogInRequestDto dto) {
+    public ResponseEntity<AuthResponseDto> login(@RequestBody LogInRequestDto dto) {
 
         Authentication authentication = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -34,8 +38,10 @@ public class AuthController {
                 )
         );
 
-        String token = jwtUtil.generateToken((UserDetails) authentication.getPrincipal());
-        return ResponseEntity.ok(token);
+        AuthResponseDto authResponseDto = authService.getUserInfoDto(authentication);
+
+        return ResponseEntity.ok(authResponseDto);
+
     }
 }
 

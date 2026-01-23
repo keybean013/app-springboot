@@ -1,16 +1,12 @@
 package com.keybean.creating_api2.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 
 
-
 @Entity
 @Table(name = "users")
-@SQLDelete(sql = "UPDATE users SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
 public class User {
 
     @Id
@@ -45,6 +41,9 @@ public class User {
     @Column(name = "is_active", nullable = false)
     private boolean isActive = false;
 
+    @Column(name = "session_key")
+    private String sessionKey;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
@@ -55,25 +54,26 @@ public class User {
     private LocalDateTime deletedAt;
 
     @PrePersist
-    protected void onCreate () {
+    protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = createdAt;
     }
 
     @PreUpdate
-    protected void onUpdate () {
+    protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
 
     @PreRemove
-    protected void onDelete () {
+    protected void onDelete() {
         deletedAt = LocalDateTime.now();
     }
 
-    public User () {}
+    public User() {
+    }
 
-    public User(Long id, Role role, String username, String password, String firstName, String lastName, String contactNo, String address,
-                String email, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt) {
+    public User(Long id, Role role, String username, String password, String firstName, String lastName, String contactNo, String address, String email,
+                boolean isActive, String sessionKey, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt) {
         this.id = id;
         this.role = role;
         this.username = username;
@@ -84,9 +84,18 @@ public class User {
         this.address = address;
         this.email = email;
         this.isActive = isActive;
+        this.sessionKey = sessionKey;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
+    }
+
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
     }
 
     public Long getId() {

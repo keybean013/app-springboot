@@ -1,10 +1,7 @@
 package com.keybean.creating_api2.repository;
 
 import com.keybean.creating_api2.dto.user.response.UserResponseDto;
-import com.keybean.creating_api2.dto.user.response.UserResponseInfoDto;
 import com.keybean.creating_api2.entity.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,6 +23,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             u.address,
             u.email,
             u.isActive,
+            u.sessionKey,
             u.createdAt,
             u.updatedAt,
             u.deletedAt
@@ -34,23 +32,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
         JOIN u.role r
     """)
     List<UserResponseDto> findAllUsers();
-
-    @Query("""
-        SELECT new com.keybean.creating_api2.dto.user.response.UserResponseInfoDto(
-            u.id,
-            r,
-            u.username,
-            u.firstName,
-            u.lastName,
-            u.contactNo,
-            u.address,
-            u.email
-        )
-        FROM User u
-        JOIN u.role r
-    """)
-    List<UserResponseInfoDto> findAllUsersInfo();
-
     @Query("""
         SELECT new com.keybean.creating_api2.dto.user.response.UserResponseDto(
             u.id,
@@ -62,6 +43,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             u.address,
             u.email,
             u.isActive,
+            u.sessionKey,
             u.createdAt,
             u.updatedAt,
             u.deletedAt
@@ -73,21 +55,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<UserResponseDto> findUserById(@Param("id") Long id);
 
     @Query("""
-        SELECT new com.keybean.creating_api2.dto.user.response.UserResponseInfoDto(
-            u.id,
-            r,
-            u.username,
-            u.firstName,
-            u.lastName,
-            u.contactNo,
-            u.address,
-            u.email
-        )
-        FROM User u
-        JOIN u.role r
-        WHERE u.id = :id
+        SELECT u FROM User u
+        JOIN FETCH u.role
+        WHERE u.username = :username
     """)
-    Optional<UserResponseInfoDto> findUserInfoById(@Param("id") Long id);
+    Optional<User> findByUsernameWithRoles(@Param("username") String username);
+
 
     Optional<User> findByUsername(String username);
 

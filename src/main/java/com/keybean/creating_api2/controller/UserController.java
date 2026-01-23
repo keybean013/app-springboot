@@ -4,7 +4,6 @@ import com.keybean.creating_api2.dto.user.request.UserCreatedDto;
 import com.keybean.creating_api2.dto.user.request.UserUpdateInfoDto;
 import com.keybean.creating_api2.dto.user.request.UserUpdatePasswordDto;
 import com.keybean.creating_api2.dto.user.response.UserResponseDto;
-import com.keybean.creating_api2.dto.user.response.UserResponseInfoDto;
 import com.keybean.creating_api2.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,18 +31,6 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<Optional<UserResponseDto>> getUserById (@PathVariable Long id) {
         Optional<UserResponseDto> user = userService.getUserByid(id);
-        return ResponseEntity.ok(user);
-    }
-
-
-    @GetMapping("/users/info")
-    public ResponseEntity<List<UserResponseInfoDto>> getAllUsersInfo () {
-        List<UserResponseInfoDto> userInfo = userService.getAllUsersInfo();
-        return ResponseEntity.ok(userInfo);
-    }
-    @GetMapping("/user/info/{id}")
-    public ResponseEntity<Optional<UserResponseInfoDto>> getUserInfoById (@PathVariable Long id) {
-        Optional<UserResponseInfoDto> user = userService.getUserInfoById(id);
         return ResponseEntity.ok(user);
     }
 

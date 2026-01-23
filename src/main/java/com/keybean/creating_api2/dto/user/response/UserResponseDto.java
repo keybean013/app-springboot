@@ -15,14 +15,14 @@ public class UserResponseDto {
     private String address;
     private String email;
     private Boolean isActive;
+    private String sessionKey;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
 
     public UserResponseDto () {}
 
-    public UserResponseDto(Long id, Role role, String username, String firstName, String lastName, String contactNo, String address,
-                           String email, Boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt) {
+    public UserResponseDto(Long id, Role role, String username, String firstName, String lastName, String contactNo, String address, String email, Boolean isActive, String sessionKey, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt) {
         this.id = id;
         this.role = role;
         this.username = username;
@@ -32,6 +32,7 @@ public class UserResponseDto {
         this.address = address;
         this.email = email;
         this.isActive = isActive;
+        this.sessionKey = sessionKey;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
@@ -49,6 +50,9 @@ public class UserResponseDto {
         return username;
     }
 
+    public String getSessionKey() {
+        return sessionKey;
+    }
 
     public String getFirstName() {
         return firstName;
