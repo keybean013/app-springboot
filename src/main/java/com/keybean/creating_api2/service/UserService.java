@@ -1,22 +1,29 @@
 package com.keybean.creating_api2.service;
 
-import com.keybean.creating_api2.dto.user.request.UserCreatedDto;
-import com.keybean.creating_api2.dto.user.request.UserUpdateInfoDto;
-import com.keybean.creating_api2.dto.user.request.UserUpdatePasswordDto;
+import com.keybean.creating_api2.dto.user.request.UserUpdateDto;
 import com.keybean.creating_api2.dto.user.response.UserResponseDto;
-import com.keybean.creating_api2.dto.user.response.UserResponseInfoDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
+    // Create a new user
+    UserResponseDto createUser(UserUpdateDto dto);
+
+    // Get user by ID
+    Optional<UserResponseDto> getUserById(Long id);
+
+    // Get all users
     List<UserResponseDto> getAllUsers();
-    List<UserResponseInfoDto> getAllUsersInfo();
-    Optional<UserResponseDto> getUserByid(Long id);
-    Optional<UserResponseInfoDto> getUserInfoById(Long id);
-    void createUser (UserCreatedDto dto);
-    void updateUserInfo (UserUpdateInfoDto dto,  Long id);
-    void updateUserPass (UserUpdatePasswordDto dto, Long id);
-    void hardDeleteUser(Long id);
+
+    // Full update (PUT)
+    UserResponseDto updateUser(Long id, UserUpdateDto dto);
+
+    // Partial update (PATCH)
+    UserResponseDto patchUser(Long id, UserUpdateDto dto);
+
+    // Soft delete
+    void deleteUser(Long id);
+
 }

@@ -1,17 +1,28 @@
 package com.keybean.creating_api2.service;
 
-import com.keybean.creating_api2.dto.role.request.RoleCreateDto;
 import com.keybean.creating_api2.dto.role.request.RoleUpdateDto;
 import com.keybean.creating_api2.dto.role.response.RoleResponseDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RoleService {
 
-    List<RoleResponseDto> getAllRoles();
-    RoleResponseDto getRoleById(Long id);
-    void createRole (RoleCreateDto dto);
-    void updateRole (RoleUpdateDto dto, Long id);
-    void deleteRole (Long id);
+//    // Create a new role (use RoleUpdateDto)
+//    RoleResponseDto createRole(RoleUpdateDto dto);
+//
+//    // Get role by ID
+//    RoleResponseDto getRoleById(Long id);
+//
+//    // Get all roles
+//    List<RoleResponseDto> getAllRoles();
+//
+//    // Full update (PUT)
+//    RoleResponseDto updateRole(Long id, RoleUpdateDto dto);
+//
+//    // Partial update (PATCH)
+//    RoleResponseDto patchRole(Long id, RoleUpdateDto dto);
+//
+//    // Soft delete
+//    void deleteRole(Long id);
+
 }
