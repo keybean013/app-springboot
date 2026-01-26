@@ -34,6 +34,8 @@ public class AuthServiceImpl implements AuthService {
 
         responseDto.setSessionKey(token);
         responseDto.setUsername(user.getUsername());
+        responseDto.setFirstName(user.getFirstName());
+        responseDto.setLastName(user.getLastName());
         responseDto.setId(user.getId());
 
         return responseDto;
