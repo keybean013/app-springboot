@@ -17,4 +17,33 @@ import java.util.stream.Collectors;
 public class RoleServiceImpl implements RoleService {
 
 
+    @Override
+    public RoleResponseDto createRole(RoleUpdateDto dto) {
+        return null;
+    }
+
+    @Override
+    public RoleResponseDto getRoleById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<RoleResponseDto> getAllRoles() {
+        return List.of();
+    }
+
+    @Override
+    public RoleResponseDto updateRole(Long id, RoleUpdateDto dto) {
+        return null;
+    }
+
+    @Override
+    public RoleResponseDto patchRole(Long id, RoleUpdateDto dto) {
+        return null;
+    }
+
+    @Override
+    public void deleteRole(Long id) {
+
+    }
 }

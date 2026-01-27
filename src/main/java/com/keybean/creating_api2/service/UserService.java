@@ -1,5 +1,6 @@
 package com.keybean.creating_api2.service;
 
+import com.keybean.creating_api2.dto.user.request.UserCreateDto;
 import com.keybean.creating_api2.dto.user.request.UserUpdateDto;
 import com.keybean.creating_api2.dto.user.response.UserResponseDto;
 
@@ -9,7 +10,7 @@ import java.util.Optional;
 public interface UserService {
 
     // Create a new user
-    UserResponseDto createUser(UserUpdateDto dto);
+    UserResponseDto createUser(UserCreateDto dto);
 
     // Get user by ID
     Optional<UserResponseDto> getUserById(Long id);

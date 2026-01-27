@@ -17,10 +17,13 @@ public class UserResponseDto {
     private String username;
     private String firstName;
     private String lastName;
+    private String address;
+    private String contactNo;
     private String email;
     private boolean active;
     private String sessionKey;
-    private RoleResponseDto role;
+    private String roleName;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 }

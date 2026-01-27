@@ -58,7 +58,7 @@ public class User {
 
     @NotBlank
     @Email
-    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@example\\.com$",
+    @Pattern( regexp = "^[A-Za-z0-9._%+-]+@gmail\\.com$",
             message = "Email must be from gmail.com domain")
     @Column(nullable = false, unique = true)
     private String email;
