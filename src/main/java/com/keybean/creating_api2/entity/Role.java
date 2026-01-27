@@ -35,8 +35,8 @@ public class Role {
 
     @Builder.Default
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Status status = Status.INVALID;
+    @Column(name = "status")
+    private Status status = Status.INACTIVE;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
