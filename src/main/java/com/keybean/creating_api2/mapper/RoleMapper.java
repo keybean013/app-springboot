@@ -17,6 +17,7 @@ public interface RoleMapper {
     Role createRole (RoleCreateRequestDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
     void updateRole (RoleUpdateRequestDto dto, @MappingTarget Role role);
 
 }
