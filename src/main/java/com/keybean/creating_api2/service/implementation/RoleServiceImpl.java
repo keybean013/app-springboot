@@ -1,11 +1,12 @@
-package com.keybean.creating_api2.service;
+package com.keybean.creating_api2.service.implementation;
 
-import com.keybean.creating_api2.dto.request.RoleCreateRequestDto;
-import com.keybean.creating_api2.dto.request.RoleUpdateRequestDto;
-import com.keybean.creating_api2.dto.response.RoleResponseDto;
+import com.keybean.creating_api2.dto.role.request.RoleCreateRequestDto;
+import com.keybean.creating_api2.dto.role.request.RoleUpdateRequestDto;
+import com.keybean.creating_api2.dto.role.response.RoleResponseDto;
 import com.keybean.creating_api2.entity.Role;
 import com.keybean.creating_api2.mapper.RoleMapper;
 import com.keybean.creating_api2.repository.RoleRepository;
+import com.keybean.creating_api2.service.RoleService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
     private final RoleMapper roleMapper;

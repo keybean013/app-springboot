@@ -42,7 +42,7 @@ public class User {
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", nullable = false )
     private String lastName;
 
     @Column(name = "email", nullable = false)
@@ -75,6 +75,7 @@ public class User {
         deletedAt = LocalDateTime.now();
     }
 
+    @PrePersist
     public void generatePublicId () {
         if (publicId == null) {
             publicId = UUID.randomUUID().toString();

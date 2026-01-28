@@ -1,4 +1,4 @@
-package com.keybean.creating_api2.dto.request;
+package com.keybean.creating_api2.dto.role.request;
 
 
 import jakarta.validation.constraints.NotBlank;

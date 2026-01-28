@@ -1,4 +1,4 @@
-package com.keybean.creating_api2.dto.response;
+package com.keybean.creating_api2.dto.role.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

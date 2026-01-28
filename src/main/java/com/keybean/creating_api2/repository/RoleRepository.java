@@ -8,11 +8,10 @@ import java.util.Optional;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
-
     Optional<Role> findByIdAndDeletedAtIsNull (Long id);
+
     List<Role> findAllByDeletedAtIsNull();
-    List<Role> findByRoleNameAndDeletedAtIsNull(String roleName);
 
-
+    Optional<Role> findByRoleNameAndDeletedAtIsNull(String roleName);
 
 }

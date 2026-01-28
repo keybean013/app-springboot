@@ -1,9 +1,8 @@
 package com.keybean.creating_api2.service;
 
-import com.keybean.creating_api2.dto.request.RoleCreateRequestDto;
-import com.keybean.creating_api2.dto.request.RoleUpdateRequestDto;
-import com.keybean.creating_api2.dto.response.RoleResponseDto;
-import com.keybean.creating_api2.entity.Role;
+import com.keybean.creating_api2.dto.role.request.RoleCreateRequestDto;
+import com.keybean.creating_api2.dto.role.request.RoleUpdateRequestDto;
+import com.keybean.creating_api2.dto.role.response.RoleResponseDto;
 
 import java.util.List;
 import java.util.Optional;
