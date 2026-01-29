@@ -11,27 +11,18 @@ public class UserUpdateDto {
 
     private String roleName;
 
-
     private String username;
-
 
     private String password;
 
-
     private String firstName;
 
-
-    private String lastname;
-
+    private String lastName;
 
     private String email;
 
-
     private String address;
 
-
     private String contactNo;
-
-    private Boolean isActive;
 
 }

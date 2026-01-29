@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "users")
-@SQLDelete(sql = "UPDATE roles SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
+@SQLDelete(sql = "UPDATE Users SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -45,7 +45,7 @@ public class User {
     @Column(name = "last_name", nullable = false )
     private String lastName;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true )
     private String email;
 
     @Column(name = "address", nullable = false)
@@ -72,7 +72,8 @@ public class User {
     private LocalDateTime deletedAt;
 
     public void softDelete () {
-        deletedAt = LocalDateTime.now();
+        this.deletedAt = LocalDateTime.now();
+        this.isActive = false; // adding this
     }
 
     @PrePersist

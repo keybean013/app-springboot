@@ -18,7 +18,7 @@ public class UserResponseDto {
     private RoleResponseDto role;
     private String username;
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String email;
     private String address;
     private String contactNo;

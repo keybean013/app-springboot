@@ -12,11 +12,13 @@ public interface UserService {
 
     List<UserResponseDto> getAllUsers ();
 
-    Optional<UserResponseDto> getUserById (Long id);
+    UserResponseDto getUserById (Long id);
 
     UserResponseDto createUser (UserCreateDto dto);
 
     String updateUser (UserUpdateDto dto, Long id);
 
     String deleteUser (Long id);
+
+    String activateUser (Long id);
 }
