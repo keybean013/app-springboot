@@ -9,15 +9,15 @@ import java.util.Optional;
 
 public interface UserService {
 
-    Optional<UserResponseDto> getRoleById (Long id);
+    List<UserResponseDto> getAllUsers ();
 
-    List<UserResponseDto> getAllRole ();
+    UserResponseDto getUserById (Long id);
 
-    UserResponseDto createRole (UserCreateDto dto);
+    UserResponseDto createUser (UserCreateDto dto);
 
-    void updateRole (UserUpdateDto dto, Long id);
+    void updateUser (UserUpdateDto dto, Long id);
 
-    void deleteRole (Long id);
+    void deleteUser (Long id);
 
     void activateUser (Long id);
 }
