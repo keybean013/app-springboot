@@ -57,6 +57,7 @@ public class User {
     @Column(name = "session_key")
     private String sessionKey;
 
+    @Builder.Default
     @Column(name = "is_active", nullable = false)
     private boolean isActive = false;
 

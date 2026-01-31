@@ -12,10 +12,7 @@ import lombok.*;
 public class RoleUpdateDto {
 
     public String roleName;
-    @EnumValue(
-            enumClass = Role.Status.class,
-            message = "Must be VALID, INVALID, or INACTIVE"
-    )
+
     private String status;
 
 }

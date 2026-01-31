@@ -21,6 +21,7 @@ public class UserResponseDto {
     private String email;
     private String address;
     private String contactNo;
+    private boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

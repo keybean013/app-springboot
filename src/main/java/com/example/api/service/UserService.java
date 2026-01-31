@@ -1,6 +1,7 @@
 package com.example.api.service;
 
 import com.example.api.dto.user.request.UserCreateDto;
+import com.example.api.dto.user.request.UserSetIsActive;
 import com.example.api.dto.user.request.UserUpdateDto;
 import com.example.api.dto.user.response.UserResponseDto;
 
@@ -19,5 +20,5 @@ public interface UserService {
 
     void deleteUser (Long id);
 
-    void activateUser (Long id);
+    void activateUser (UserSetIsActive dto, Long id);
 }

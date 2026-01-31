@@ -58,45 +58,41 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public void updateRole(RoleUpdateDto dto, Long id) {
-
-        Role role = roleRepository.findByIdAndDeletedAtIsNull(id)
+        Role role = roleRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Role not found"));
 
-        // Prevent duplicate role name (excluding current role)
         if (dto.getRoleName() != null &&
-                roleRepository.existsByRoleNameAndDeletedAtIsNull(
-                        dto.getRoleName())) {
-
-            throw new ConflictException("Role name already exists");
+                roleRepository.existsByRoleNameAndDeletedAtIsNull(dto.getRoleName())) {
+            throw new ConflictException("Role name already Exist.");
         }
 
-        // Prevent no-op status update
-        if (dto.getStatus() != null) {
-            Role.Status newStatus =
-                    Role.Status.valueOf(dto.getStatus().toUpperCase());
-
-            if (role.getStatus() == newStatus) {
-                throw new ConflictException("Role is already " + newStatus);
-            }
-
-            role.setStatus(newStatus);
+        if (dto.getRoleName() == null) {
+            throw new BadRequestException("Enter role name.");
         }
 
-        if (dto.getRoleName() == null && dto.getStatus() == null) {
-            throw new BadRequestException("Two fields are empty.");
+        //    ️ Validate enum
+        Role.Status status = validateStatus(dto.getStatus());
+
+        //      Map other fields (ignore nulls)
+        roleMapper.updateEntity(dto, role);
+
+        //      Set enum manually
+        if (status != null) {
+            role.setStatus(status);
         }
 
-        // Apply updates
-        if (dto.getRoleName() != null) {
-            role.setRoleName(dto.getRoleName());
+    }
+
+    private Role.Status validateStatus(String status) {
+
+        try {
+            return Role.Status.valueOf(status.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new BadRequestException(
+                    "Invalid status. Allowed values: VALID, INVALID, INACTIVE"
+            );
         }
 
-        if (dto.getStatus() != null) {
-            Role.Status newStatus =
-                    Role.Status.valueOf(dto.getStatus().toUpperCase());
-
-            role.setStatus(newStatus);
-        }
     }
 
     @Override

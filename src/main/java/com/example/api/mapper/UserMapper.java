@@ -1,6 +1,6 @@
 package com.example.api.mapper;
 
-import com.example.api.dto.role.request.RoleCreateDto;
+import com.example.api.dto.user.request.UserCreateDto;
 import com.example.api.dto.user.request.UserUpdateDto;
 import com.example.api.dto.user.response.UserResponseDto;
 import com.example.api.entity.User;
@@ -12,10 +12,10 @@ public interface UserMapper {
     UserResponseDto toDto (User user);
 
     @Mapping(target = "id", ignore = true)
-    User createToEntity (RoleCreateDto dto);
+    User createToEntity (UserCreateDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "role", ignore = true)
-    User updateToEntity (UserUpdateDto dto, @MappingTarget User user);
+    void updateToEntity (UserUpdateDto dto, @MappingTarget User user);
 
 }
