@@ -1,4 +1,4 @@
-package com.example.api.entity;
+package com.keybean.back_end_api.entity;
 
 
 import jakarta.persistence.*;
@@ -16,10 +16,10 @@ import java.util.UUID;
 @Table(name = "roles")
 @SQLDelete(sql = "UPDATE roles SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
 @EntityListeners(AuditingEntityListener.class)
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Role {
 
@@ -27,7 +27,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "public_id", nullable = false, unique = true, updatable = false, length = 36)
+    @Column(name = "public_id", unique = true, nullable = false, length = 36, updatable = false)
     private String publicId;
 
     @Column(name = "role_name", unique = true, nullable = false)
@@ -38,26 +38,27 @@ public class Role {
     @Column(name = "status", nullable = false)
     private Status status = Status.INACTIVE;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-    private List<User> users;
-
     @CreatedDate
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
-    public enum Status {
-        INVALID, VALID, INACTIVE
-    }
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<User> users;
 
     public void softDelete () {
         this.deletedAt = LocalDateTime.now();
+        this.status = Status.INACTIVE;
+    }
+
+    public enum Status {
+        INVALID, VALID, INACTIVE;
     }
 
     @PrePersist
@@ -66,4 +67,5 @@ public class Role {
             this.publicId = UUID.randomUUID().toString();
         }
     }
+
 }

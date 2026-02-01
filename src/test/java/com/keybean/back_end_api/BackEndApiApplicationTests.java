@@ -1,10 +1,10 @@
-package com.example.api;
+package com.keybean.back_end_api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class BackEndApiApplicationTests {
 
 	@Test
 	void contextLoads() {

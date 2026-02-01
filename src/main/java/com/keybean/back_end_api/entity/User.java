@@ -1,4 +1,4 @@
-package com.example.api.entity;
+package com.keybean.back_end_api.entity;
 
 
 import jakarta.persistence.*;
@@ -17,8 +17,8 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class User {
 
@@ -26,7 +26,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "public_id", unique = true, nullable = false, updatable = false, length = 36)
+    @Column(name = "public_id", unique = true, updatable = false, nullable = false, length = 36)
     private String publicId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -45,7 +45,7 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "address", nullable = false)
@@ -72,16 +72,15 @@ public class User {
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
+    public void softDelete () {
+        this.deletedAt = LocalDateTime.now();
+    }
+
     @PrePersist
     public void generatePublicId () {
         if (publicId == null) {
-            publicId = UUID.randomUUID().toString();
+            this.publicId = UUID.randomUUID().toString();
         }
-    }
-
-    public void softDelete () {
-        this.deletedAt = LocalDateTime.now();
-        this.isActive = false;
     }
 
 }

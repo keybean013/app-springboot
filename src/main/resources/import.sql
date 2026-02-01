@@ -19,7 +19,7 @@ INSERT INTO roles (id, public_id, role_name, status, created_at, updated_at, del
 -- INSERT INTO user (id, role_id, username, password, first_name, last_name, email, session_key, is_active) VALUE (11, 2, "username11", "password11", "samplename12", "lastname11", "sample@gmail.com", NULL, true);
 
 
--- ================================$2a$10$LQaQLkSGHqKeuUiZMnHr3uB3r/S0UYDK.zCTSTlAQOlKyOBzl5TSy
+-- ================================
 -- USERS DATA (TABLE: users) null,
 -- ================================
 
