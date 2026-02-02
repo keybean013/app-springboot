@@ -11,10 +11,11 @@ public interface UserMapper {
 
     UserResponseDto toDto (User user);
 
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "role", ignore = true)
     User create (UserCreateRequestDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "role", ignore = true)
-    void update (UserUpdateRequestDto dto,@MappingTarget User user);
+    void update (UserUpdateRequestDto dto, @MappingTarget User user);
 }

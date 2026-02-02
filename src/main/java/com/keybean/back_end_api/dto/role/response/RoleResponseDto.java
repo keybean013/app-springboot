@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Builder
 public class RoleResponseDto {
 
-    private Long id;
     private String publicId;
     private String roleName;
     private String status;

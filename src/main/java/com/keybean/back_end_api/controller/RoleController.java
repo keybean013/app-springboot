@@ -1,7 +1,7 @@
 package com.keybean.back_end_api.controller;
 
-import com.keybean.back_end_api.dto.role.requst.RoleCreateRequestDto;
-import com.keybean.back_end_api.dto.role.requst.RoleUpdateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleCreateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleUpdateRequestDto;
 import com.keybean.back_end_api.dto.role.response.RoleResponseDto;
 import com.keybean.back_end_api.service.RoleService;
 import lombok.RequiredArgsConstructor;

@@ -12,6 +12,8 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Optional<Role>  findByIdAndDeletedAtIsNull(Long id);
 
+    Optional<Role> findByRoleNameAndDeletedAtIsNull(String roleName);
+
     boolean existsByRoleNameAndDeletedAtIsNull(String roleName);
 
 

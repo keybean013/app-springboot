@@ -1,8 +1,8 @@
 package com.keybean.back_end_api.mapper;
 
 
-import com.keybean.back_end_api.dto.role.requst.RoleCreateRequestDto;
-import com.keybean.back_end_api.dto.role.requst.RoleUpdateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleCreateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleUpdateRequestDto;
 import com.keybean.back_end_api.dto.role.response.RoleResponseDto;
 import com.keybean.back_end_api.entity.Role;
 import org.mapstruct.*;

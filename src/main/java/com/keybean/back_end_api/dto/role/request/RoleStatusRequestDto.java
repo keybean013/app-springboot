@@ -1,4 +1,4 @@
-package com.keybean.back_end_api.dto.role.requst;
+package com.keybean.back_end_api.dto.role.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

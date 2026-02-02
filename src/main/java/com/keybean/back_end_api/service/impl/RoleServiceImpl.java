@@ -1,7 +1,7 @@
 package com.keybean.back_end_api.service.impl;
 
-import com.keybean.back_end_api.dto.role.requst.RoleCreateRequestDto;
-import com.keybean.back_end_api.dto.role.requst.RoleUpdateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleCreateRequestDto;
+import com.keybean.back_end_api.dto.role.request.RoleUpdateRequestDto;
 import com.keybean.back_end_api.dto.role.response.RoleResponseDto;
 import com.keybean.back_end_api.entity.Role;
 import com.keybean.back_end_api.exception.ConflictException;
@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Transactional
 @Service
@@ -77,7 +76,6 @@ public class RoleServiceImpl implements RoleService {
                 && !role.getStatus().name().equalsIgnoreCase(dto.getStatus())) {
             role.setStatus(roleValidator.validateStatus(dto.getStatus()));
         }
-
 
 //        if (dto.getStatus() != null && role.getStatus().name().equalsIgnoreCase(dto.getStatus())) {
 //            throw new ConflictException("You didn't change anything. You write same STATUS as old one.");
