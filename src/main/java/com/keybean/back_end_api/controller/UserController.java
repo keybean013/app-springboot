@@ -1,5 +1,6 @@
 package com.keybean.back_end_api.controller;
 
+import com.keybean.back_end_api.dto.user.request.UserChangePasswordRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserCreateRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserUpdateRequestDto;
 import com.keybean.back_end_api.dto.user.response.UserResponseDto;
@@ -61,6 +62,27 @@ public class UserController {
         userService.deleteUser(id);
 
         return ResponseEntity.ok("User deleted successfully");
+    }
+
+    @PutMapping("/{id}/activeStatus")
+    public ResponseEntity<String> updateIsActive (
+            @RequestBody UserUpdateRequestDto dto,
+            @PathVariable Long id) {
+
+        userService.activateUser(dto, id);
+
+        return ResponseEntity.ok("Active status updated successfully");
+    }
+
+    @PatchMapping("/{id}/change-password")
+    public ResponseEntity<String> changePassword (
+            @PathVariable Long id,
+            @Valid @RequestBody UserChangePasswordRequestDto dto
+            ) {
+
+        userService.changePassword(dto, id);
+
+        return ResponseEntity.ok("Password changed successfully.");
     }
 
 }

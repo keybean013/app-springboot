@@ -1,11 +1,14 @@
 package com.keybean.back_end_api.service.impl;
 
+import com.keybean.back_end_api.dto.user.request.UserActiveStatusRequestDto;
+import com.keybean.back_end_api.dto.user.request.UserChangePasswordRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserCreateRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserUpdateRequestDto;
 import com.keybean.back_end_api.dto.user.response.UserResponseDto;
 import com.keybean.back_end_api.entity.Role;
 import com.keybean.back_end_api.entity.User;
 import com.keybean.back_end_api.exception.BadRequestException;
+import com.keybean.back_end_api.exception.ConflictException;
 import com.keybean.back_end_api.exception.NotFoundException;
 import com.keybean.back_end_api.mapper.UserMapper;
 import com.keybean.back_end_api.repository.RoleRepository;
@@ -80,7 +83,7 @@ public class UserServiceImpl implements UserService {
         Role role = roleRepository.findByRoleNameAndDeletedAtIsNull(dto.getRoleName())
                 .orElseThrow(()-> new NotFoundException("Role not found."));
 
-        if (!user.isActive()) {
+        if (!user.getIsActive()) {
             throw new BadRequestException("User inactive, activate user first.");
         }
 
@@ -107,4 +110,43 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
     }
+
+    @Override
+    public void activateUser(UserUpdateRequestDto dto, Long id) {
+
+        User user = userRepository.findByIdAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new NotFoundException("User not found."));
+
+        if (dto.getIsActive() == user.getIsActive()) {
+            throw new ConflictException("Nothing change");
+        }
+
+        userMapper.update(dto, user);
+
+        userRepository.save(user);
+    }
+
+    @Override
+    public void changePassword(UserChangePasswordRequestDto dto, Long id) {
+        User user = userRepository.findByIdAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new NotFoundException("User not found."));
+
+        if (!user.getIsActive()) {
+
+            throw new BadRequestException("User inactive, activate user first.");
+
+        }
+
+        if (!passwordEncoder.matches(dto.getNewPassword(), user.getPassword())) {
+
+            throw new BadRequestException("New password must be different from old password.");
+
+        }
+
+        user.setPassword(passwordEncoder.encode(dto.getNewPassword()));
+
+        userRepository.save(user);
+
+    }
+
 }

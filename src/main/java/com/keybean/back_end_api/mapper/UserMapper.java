@@ -11,7 +11,6 @@ public interface UserMapper {
 
     UserResponseDto toDto (User user);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "role", ignore = true)
     User create (UserCreateRequestDto dto);
 

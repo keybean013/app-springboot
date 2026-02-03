@@ -59,7 +59,7 @@ public class User {
 
     @Builder.Default
     @Column(name = "is_active", nullable = false)
-    private boolean isActive = false;
+    private Boolean isActive = false;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false)

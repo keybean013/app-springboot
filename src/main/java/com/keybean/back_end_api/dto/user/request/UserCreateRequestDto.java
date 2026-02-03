@@ -51,7 +51,5 @@ public class UserCreateRequestDto {
     @NotBlank(message = "Contact No. is required")
     private String contactNo;
 
-    private Boolean isActive;
-
 
 }

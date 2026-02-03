@@ -1,5 +1,7 @@
 package com.keybean.back_end_api.service;
 
+import com.keybean.back_end_api.dto.user.request.UserActiveStatusRequestDto;
+import com.keybean.back_end_api.dto.user.request.UserChangePasswordRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserCreateRequestDto;
 import com.keybean.back_end_api.dto.user.request.UserUpdateRequestDto;
 import com.keybean.back_end_api.dto.user.response.UserResponseDto;
@@ -18,5 +20,9 @@ public interface UserService {
     void updateUser (UserUpdateRequestDto dto, Long id);
 
     void deleteUser (Long id);
+
+    void activateUser (UserUpdateRequestDto dto, Long id);
+
+    void changePassword (UserChangePasswordRequestDto dto, Long id);
 
 }
