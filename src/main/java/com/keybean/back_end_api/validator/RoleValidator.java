@@ -1,6 +1,7 @@
 package com.keybean.back_end_api.validator;
 
 import com.keybean.back_end_api.entity.Role;
+import com.keybean.back_end_api.enums.ErrorCode;
 import com.keybean.back_end_api.exception.BadRequestException;
 import com.keybean.back_end_api.exception.ConflictException;
 import com.keybean.back_end_api.repository.RoleRepository;
@@ -16,7 +17,7 @@ public class RoleValidator {
     public void CheckUniqueRoleName (String roleName) {
 
         if (roleRepository.existsByRoleNameAndDeletedAtIsNull(roleName)) {
-            throw new ConflictException("Role already exists.");
+            throw new ConflictException(ErrorCode.ROLE_ALREADY_EXISTS);
         }
 
     }

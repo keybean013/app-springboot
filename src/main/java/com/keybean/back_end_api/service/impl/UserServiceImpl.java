@@ -7,6 +7,7 @@ import com.keybean.back_end_api.dto.user.request.UserUpdateRequestDto;
 import com.keybean.back_end_api.dto.user.response.UserResponseDto;
 import com.keybean.back_end_api.entity.Role;
 import com.keybean.back_end_api.entity.User;
+import com.keybean.back_end_api.enums.ErrorCode;
 import com.keybean.back_end_api.exception.BadRequestException;
 import com.keybean.back_end_api.exception.ConflictException;
 import com.keybean.back_end_api.exception.NotFoundException;
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto getUserById(Long id) {
 
         User user = userRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("User not found"));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
         return userMapper.toDto(user);
     }
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto createUser(UserCreateRequestDto dto) {
 
         Role role = roleRepository.findByRoleNameAndDeletedAtIsNull(dto.getRoleName())
-                .orElseThrow(() -> new NotFoundException("Role not found"));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.ROLE_NOT_FOUND));
 
         userValidator.checkUniqueEmail(dto.getEmail());
         userValidator.checkUniqueUsername(dto.getUsername());
@@ -78,10 +79,10 @@ public class UserServiceImpl implements UserService {
     public void updateUser(UserUpdateRequestDto dto, Long id) {
 
         User user = userRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(()-> new NotFoundException("User not found."));
+                .orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
         Role role = roleRepository.findByRoleNameAndDeletedAtIsNull(dto.getRoleName())
-                .orElseThrow(()-> new NotFoundException("Role not found."));
+                .orElseThrow(()-> new NotFoundException(ErrorCode.ROLE_NOT_FOUND));
 
         if (!user.getIsActive()) {
             throw new BadRequestException("User inactive, activate user first.");
@@ -104,7 +105,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
 
         User user = userRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("User not found."));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
         user.softDelete();
 
@@ -115,10 +116,10 @@ public class UserServiceImpl implements UserService {
     public void activateUser(UserUpdateRequestDto dto, Long id) {
 
         User user = userRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("User not found."));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
         if (dto.getIsActive() == user.getIsActive()) {
-            throw new ConflictException("Nothing change");
+            throw new ConflictException(ErrorCode.NO_CHANGES_DETECTED);
         }
 
         userMapper.update(dto, user);
@@ -129,7 +130,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void changePassword(UserChangePasswordRequestDto dto, Long id) {
         User user = userRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("User not found."));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
         if (!user.getIsActive()) {
 

@@ -4,6 +4,7 @@ import com.keybean.back_end_api.dto.role.request.RoleCreateRequestDto;
 import com.keybean.back_end_api.dto.role.request.RoleUpdateRequestDto;
 import com.keybean.back_end_api.dto.role.response.RoleResponseDto;
 import com.keybean.back_end_api.entity.Role;
+import com.keybean.back_end_api.enums.ErrorCode;
 import com.keybean.back_end_api.exception.ConflictException;
 import com.keybean.back_end_api.exception.NotFoundException;
 import com.keybean.back_end_api.mapper.RoleMapper;
@@ -38,7 +39,7 @@ public class RoleServiceImpl implements RoleService {
     public RoleResponseDto getRoleById(Long id) {
 
         Role role =  roleRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("Role not found."));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.ROLE_NOT_FOUND));
 
         return roleMapper.toDto(role);
     }
@@ -64,10 +65,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void updateRole(RoleUpdateRequestDto dto, Long id) {
         Role role = roleRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("Role not found."));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.ROLE_NOT_FOUND));
 
         if (dto.getRoleName() != null && dto.getRoleName().equals(role.getRoleName())) {
-            throw new ConflictException("You didn't change anything. You write same ROLE as old one.");
+            throw new ConflictException(ErrorCode.NO_CHANGES_DETECTED);
         }
 
         roleMapper.update(dto, role);
@@ -93,7 +94,7 @@ public class RoleServiceImpl implements RoleService {
     public void deleteRole(Long id) {
 
         Role role = roleRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new NotFoundException("Role not found"));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.ROLE_NOT_FOUND));
 
         role.softDelete();
 
